@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Threading;
 
 namespace AmazonNUnit
 {
@@ -40,16 +41,27 @@ namespace AmazonNUnit
         public void sortPrices(int sort_order)
         {
 
+            IWebElement sort_select = driver.FindElement(By.XPath("//*[@id='a-autoid-0-announce']"));
+            sort_select.Click();
+            if (sort_order == 0)
+            {
+                IWebElement low_to_high = driver.FindElement(By.XPath("//*[@id='s-result-sort-select_1']"));
+                low_to_high.Click();
+            }
+            else if(sort_order == 1)
+            {
+                IWebElement low_to_high = driver.FindElement(By.XPath("//*[@id='s-result-sort-select_2']"));
+                low_to_high.Click();
+            }
+            else
+            {
+                Console.WriteLine("Invalid sort option selected");
+            }
 
-            //driver.FindElement(By.XPath("//*[@id="s-result-sort-select]]")).FindElement(By.XPath("//*[@id='s - result - sort - select']/option[2]")).Click();
-            IWebElement sort_select = driver.FindElement(By.XPath("//*[@id='s-result-sort-select']"));
-            var selectObject = new SelectElement(sort_select);
-            selectObject.SelectByText("Price: Low to High");
-
+            Thread.Sleep(3000);
 
             this.printProductPrices();
-
-
+            
             //IReadOnlyList<IWebElement> product_list = this.getProducts();
             //List<String> prices = new List<string>(product_list.Count);
             //foreach (IWebElement product in product_list)

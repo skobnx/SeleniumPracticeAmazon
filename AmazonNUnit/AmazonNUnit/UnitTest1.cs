@@ -19,6 +19,7 @@ namespace AmazonNUnit
         public void Test1()
         {
             driver.Navigate().GoToUrl(@"https://www.amazon.com");
+            driver.Manage().Window.Maximize();
             AmazonHomePage homepage = new AmazonHomePage(driver);
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
             //searchPage.printProductPrices();
