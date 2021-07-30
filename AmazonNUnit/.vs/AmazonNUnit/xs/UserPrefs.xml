@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{E092E166-6CE7-4B00-88D7-52B4A3FA72EE}|Default">
+  <MonoDevelop.Ide.ItemProperties.AmazonNUnit PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AmazonNUnit/UnitTest1.cs">
+    <Files>
+      <File FileName="AmazonNUnit/AmazonHomePage.cs" Line="24" Column="41" />
+      <File FileName="AmazonNUnit/AmazonSearchPage.cs" />
+      <File FileName="AmazonNUnit/UnitTest1.cs" Line="17" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="AmazonNUnit" expanded="True">
+            <Node name="AmazonNUnit" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="UnitTest1.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="AmazonNUnit" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
