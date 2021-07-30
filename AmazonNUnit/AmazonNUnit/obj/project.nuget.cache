@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tTJWTN7G3Qun+2o2i+/DWa8UPxT4rNiNZtnhKiYXLhRfR+N7FQjpGIOnnjoObsh4DO9U4pj2LQmHORlN17cXqQ==",
+  "dgSpecHash": "LHCHTYqyVbB/zr0QyczoRI4UZ4b6Tzfh5yPq+S8po6SihOc6mLK57cI1hEAa7kutvekG4kulQ9ztLcWXD2aaJw==",
   "success": true,
   "projectFilePath": "/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/AmazonNUnit/AmazonNUnit/AmazonNUnit.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "/Users/sebastiandrake/.nuget/packages/nuget.frameworks/5.0.0/nuget.frameworks.5.0.0.nupkg.sha512",
     "/Users/sebastiandrake/.nuget/packages/nunit/3.13.2/nunit.3.13.2.nupkg.sha512",
     "/Users/sebastiandrake/.nuget/packages/nunit3testadapter/4.0.0/nunit3testadapter.4.0.0.nupkg.sha512",
+    "/Users/sebastiandrake/.nuget/packages/selenium.support/3.141.0/selenium.support.3.141.0.nupkg.sha512",
     "/Users/sebastiandrake/.nuget/packages/selenium.webdriver/3.141.0/selenium.webdriver.3.141.0.nupkg.sha512",
     "/Users/sebastiandrake/.nuget/packages/system.collections/4.3.0/system.collections.4.3.0.nupkg.sha512",
     "/Users/sebastiandrake/.nuget/packages/system.collections.nongeneric/4.3.0/system.collections.nongeneric.4.3.0.nupkg.sha512",

@@ -23,7 +23,8 @@ namespace AmazonNUnit
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
             //searchPage.printProductPrices();
             String page_title = driver.Title;
-            searchPage.printProductPrices();
+            //searchPage.printProductPrices();
+            searchPage.sortPrices(1);
             driver.Quit();
             Assert.AreEqual(page_title, "Amazon.com : backpacks");
         }

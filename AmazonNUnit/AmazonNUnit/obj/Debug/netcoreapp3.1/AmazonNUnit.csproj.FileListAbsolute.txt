@@ -194,3 +194,4 @@
 /Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/AmazonNUnit/AmazonNUnit/obj/Debug/netcoreapp3.1/AmazonNUnit.dll
 /Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/AmazonNUnit/AmazonNUnit/obj/Debug/netcoreapp3.1/AmazonNUnit.pdb
 /Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/AmazonNUnit/AmazonNUnit/obj/Debug/netcoreapp3.1/AmazonNUnit.genruntimeconfig.cache
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/AmazonNUnit/AmazonNUnit/bin/Debug/netcoreapp3.1/WebDriver.Support.dll

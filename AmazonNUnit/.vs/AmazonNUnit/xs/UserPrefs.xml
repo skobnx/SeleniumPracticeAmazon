@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{E092E166-6CE7-4B00-88D7-52B4A3FA72EE}|Default">
   <MonoDevelop.Ide.ItemProperties.AmazonNUnit PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AmazonNUnit/UnitTest1.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AmazonNUnit/AmazonSearchPage.cs">
     <Files>
       <File FileName="AmazonNUnit/AmazonHomePage.cs" Line="24" Column="41" />
-      <File FileName="AmazonNUnit/AmazonSearchPage.cs" />
-      <File FileName="AmazonNUnit/UnitTest1.cs" Line="17" Column="1" />
+      <File FileName="AmazonNUnit/AmazonSearchPage.cs" Line="42" Column="1" />
+      <File FileName="AmazonNUnit/UnitTest1.cs" Line="27" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,7 +14,6 @@
               <Node name="Dependencies" expanded="True">
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
-              <Node name="UnitTest1.cs" selected="True" />
             </Node>
           </Node>
         </State>
