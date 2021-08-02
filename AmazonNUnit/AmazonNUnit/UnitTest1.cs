@@ -67,5 +67,19 @@ namespace AmazonNUnit
             Assert.AreEqual(page_title, "Amazon.com Shopping Cart");
 
         }
+
+        [Test]
+        public void TestProductPage()
+        {
+            driver.Navigate().GoToUrl(@"https://www.amazon.com");
+            driver.Manage().Window.Maximize();
+            AmazonHomePage homepage = new AmazonHomePage(driver);
+            AmazonSearchPage searchPage = homepage.searchFor("backpacks");
+            searchPage.sortPrices(1);
+            AmazonProductPage productPage = searchPage.GoToProductPage(0);
+            string page_title = driver.Title;
+            Assert.AreEqual(page_title, "Amazon.com: Gucci Unisex Beige/Blue Bloom GG Coated Canvas Small Backpack With Box 427042 8493: Clothing");
+
+        }
     }
 }

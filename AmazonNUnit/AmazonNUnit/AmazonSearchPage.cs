@@ -80,5 +80,22 @@ namespace AmazonNUnit
 
 
         }
+
+        public AmazonProductPage GoToProductPage(int product_number)
+        {
+            IReadOnlyList<IWebElement> product_list = driver.FindElements(By.XPath("//*[@data-component-type='s-search-result'][not(.//span[text()='Sponsored'])]//*[contains(@class,'a-link-normal a-text-normal')]"));
+            IWebElement webElement = product_list[product_number];
+            try
+            {
+                webElement.Click();
+
+            }
+            catch
+            {
+                Console.Write("Not Clickable\n");
+                driver.Quit();
+            }
+            return new AmazonProductPage(driver);
+        }
     }
 }
