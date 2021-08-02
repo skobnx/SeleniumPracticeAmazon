@@ -14,5 +14,10 @@ namespace AmazonNUnit
             Thread.Sleep(3000);
         }
 
+        //returns the string containing the number of items in the cart.
+        public string number_of_items_in_cart()
+        {
+            return driver.FindElement(By.XPath("//*[@id='sc-subtotal-label-buybox']")).Text;
+        }
     }
 }

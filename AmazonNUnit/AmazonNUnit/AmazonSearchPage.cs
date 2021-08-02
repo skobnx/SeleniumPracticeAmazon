@@ -9,7 +9,7 @@ namespace AmazonNUnit
     public class AmazonSearchPage
     {
         private IWebDriver driver;
-        
+
 
         public AmazonSearchPage(IWebDriver driver)
         {
@@ -18,25 +18,28 @@ namespace AmazonNUnit
             Thread.Sleep(3000);
 
         }
+
+        // gets all of the products and returns them as a list of web elements
         private IReadOnlyList<IWebElement> getProducts()
         {
             IReadOnlyList<IWebElement> product_list = driver.FindElements(By.XPath("//*[@data-component-type='s-search-result'][not(.//span[text()='Sponsored'])]//*[contains(@class,'a-offscreen')]"));
             return product_list;
         }
 
+        // prints out the prices of the products on the search result page to the console
         public void printProductPrices()
         {
             IReadOnlyList<IWebElement> product_list = this.getProducts();
             //loop through list of elements
             foreach (IWebElement product in product_list)
             {
-                //get the price element for the current backpack element
-                IWebElement priceText = product.FindElement(By.ClassName("a-offscreen"));
                 //print the price element
-                Console.WriteLine(priceText.Text);
+                Console.WriteLine(product.Text);
             }
         }
 
+
+        // uses the page's function to sort the items on the page.
         // for sort_order, 0 represents ascending and 1 represents decending.
         public void sortPrices(int sort_order)
         {
@@ -61,6 +64,7 @@ namespace AmazonNUnit
             Thread.Sleep(3000);
         }
 
+        // gets the list of prices for all of the items on the search results page
         public List<double> get_list_of_prices()
         {
             IReadOnlyList<IWebElement> product_list = this.getProducts();
@@ -81,6 +85,8 @@ namespace AmazonNUnit
 
         }
 
+        // Takes an index number and clicks on the nth product on the search results page
+        // bringing the driver to the product page for that product
         public AmazonProductPage GoToProductPage(int product_number)
         {
             try
