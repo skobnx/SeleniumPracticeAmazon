@@ -15,18 +15,14 @@ namespace AmazonNUnit
         {
             this.driver = driver;
             //wait for the next page to load
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"search\"]/span")));
+            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"search\"]/span")));
+            Thread.Sleep(3000);
+
         }
         private IReadOnlyList<IWebElement> getProducts()
         {
-
-            // Testing removing sponsored
-            //IReadOnlyList<IWebElement> product_list = driver.FindElements(By.XPath("//*[@data-component-type='s-search-result'][not(.//span[text()='Sponsored'])]"));
-
-            IWebElement search_results = driver.FindElement(By.XPath("//div[@class='s-main-slot s-result-list s-search-results sg-row']"));
-            IReadOnlyList<IWebElement> product_list = search_results.FindElements(By.ClassName("a-price"));
-
+            IReadOnlyList<IWebElement> product_list = driver.FindElements(By.XPath("//*[@data-component-type='s-search-result'][not(.//span[text()='Sponsored'])]//*[contains(@class,'a-offscreen')]"));
             return product_list;
         }
 
@@ -75,15 +71,7 @@ namespace AmazonNUnit
             //loop through list of elements
             foreach (IWebElement product in product_list)
             {
-
-                // Testing, removing sponsored
-                //IWebElement item = product.FindElement(By.ClassName("a-price"));
-                //IWebElement priceText = item.FindElement(By.ClassName("a-offscreen"));
-
-                IWebElement priceText = product.FindElement(By.ClassName("a-offscreen"));
-                Console.WriteLine(priceText.Text);
-
-                string price_string = priceText.Text;
+                string price_string = product.Text;
                 price_string = price_string.Replace("$", "");
                 price_string = price_string.Replace(",", "");
                 double double_price = Convert.ToDouble(price_string);
