@@ -18,10 +18,16 @@ namespace AmazonNUnit
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"search\"]/span")));
         }
-
         private IReadOnlyList<IWebElement> getProducts()
         {
-            return driver.FindElements(By.ClassName("a-price"));
+
+            // Testing removing sponsored
+            //IReadOnlyList<IWebElement> product_list = driver.FindElements(By.XPath("//*[@data-component-type='s-search-result'][not(.//span[text()='Sponsored'])]"));
+
+            IWebElement search_results = driver.FindElement(By.XPath("//div[@class='s-main-slot s-result-list s-search-results sg-row']"));
+            IReadOnlyList<IWebElement> product_list = search_results.FindElements(By.ClassName("a-price"));
+
+            return product_list;
         }
 
         public void printProductPrices()
@@ -59,19 +65,33 @@ namespace AmazonNUnit
             }
 
             Thread.Sleep(3000);
+        }
 
-            this.printProductPrices();
-            
-            //IReadOnlyList<IWebElement> product_list = this.getProducts();
-            //List<String> prices = new List<string>(product_list.Count);
-            //foreach (IWebElement product in product_list)
-            //{
-            //    //get the price element for the current backpack element
-            //    IWebElement priceText = product.FindElement(By.ClassName("a-offscreen"));
-            //    //print the price element
-            //    prices.Add(priceText.Text);
-            //}
-            //Console.WriteLine(prices[0]);
+        public List<double> get_list_of_prices()
+        {
+            IReadOnlyList<IWebElement> product_list = this.getProducts();
+
+            List<double> price_list = new List<double>(product_list.Count + 2);
+            //loop through list of elements
+            foreach (IWebElement product in product_list)
+            {
+
+                // Testing, removing sponsored
+                //IWebElement item = product.FindElement(By.ClassName("a-price"));
+                //IWebElement priceText = item.FindElement(By.ClassName("a-offscreen"));
+
+                IWebElement priceText = product.FindElement(By.ClassName("a-offscreen"));
+                Console.WriteLine(priceText.Text);
+
+                string price_string = priceText.Text;
+                price_string = price_string.Replace("$", "");
+                price_string = price_string.Replace(",", "");
+                double double_price = Convert.ToDouble(price_string);
+                price_list.Add(double_price);
+            }
+
+            return price_list;
+
 
         }
     }
