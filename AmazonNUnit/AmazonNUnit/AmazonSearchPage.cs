@@ -15,8 +15,6 @@ namespace AmazonNUnit
         {
             this.driver = driver;
             //wait for the next page to load
-            //WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//*[@id=\"search\"]/span")));
             Thread.Sleep(3000);
 
         }

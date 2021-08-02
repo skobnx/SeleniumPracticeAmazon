@@ -54,5 +54,18 @@ namespace AmazonNUnit
 
             Assert.AreEqual(prices, sorted_prices);
         }
+
+        [Test]
+        public void TestCartPage()
+        {
+            driver.Navigate().GoToUrl(@"https://www.amazon.com");
+            driver.Manage().Window.Maximize();
+            AmazonHomePage homePage = new AmazonHomePage(driver);
+            AmazonShoppingCartPage cartPage = homePage.goToCart();
+            string page_title = driver.Title;
+            driver.Quit();
+            Assert.AreEqual(page_title, "Amazon.com Shopping Cart");
+
+        }
     }
 }
