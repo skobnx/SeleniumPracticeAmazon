@@ -23,5 +23,12 @@ namespace AmazonNUnit
             this.addToCartButton.Click();
             return new AmazonAddedToCartPage(driver);
         }
+
+        // updates the qty of an item on the product page
+        public void updateQty(int qty)
+        {
+            driver.FindElement(By.XPath("//*[@data-action='a-dropdown-button']")).Click();
+            driver.FindElement(By.XPath($"//a[@id='quantity_{qty - 1}']")).Click();
+        }
     }
 }

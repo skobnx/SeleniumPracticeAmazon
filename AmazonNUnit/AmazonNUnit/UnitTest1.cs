@@ -85,10 +85,11 @@ namespace AmazonNUnit
 
         // 1) Searches for an item
         // 2) sorts the items by price
-        // 3) clicks on most expensive item
-        // 4) adds it to the cart
-        // 5) goes to the cart page
-        // 6) checks that the cart has the correct number of items in it
+        // 3) clicks on cheapest item
+        // 4) updates the qty of the item
+        // 5) adds it to the cart
+        // 6) goes to the cart page
+        // 7) checks that the cart has the correct number of items in it
         [Test]
         public void TestAddProductToCart()
         {
@@ -96,8 +97,9 @@ namespace AmazonNUnit
             driver.Manage().Window.Maximize();
             AmazonHomePage homepage = new AmazonHomePage(driver);
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
-            searchPage.sortPrices(1);
+            searchPage.sortPrices(0);
             AmazonProductPage productPage = searchPage.GoToProductPage(0);
+            productPage.updateQty(2);
             AmazonAddedToCartPage addedToCartPage = productPage.addItemToCart();
             AmazonShoppingCartPage cartPage = addedToCartPage.goToCart();
             string subtotal_string = cartPage.number_of_items_in_cart();
@@ -105,9 +107,9 @@ namespace AmazonNUnit
             string[] substrings = subtotal_string.Split(' ');
             string number_part = substrings[1];
             number_part = number_part.Replace("(", "");
-
+            
             driver.Quit();
-            Assert.AreEqual(number_part, "1");
+            Assert.AreEqual(number_part, "2");
         }
     }
 }
