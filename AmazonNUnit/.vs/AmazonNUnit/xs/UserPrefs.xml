@@ -1,18 +1,12 @@
 ﻿<Properties StartupConfiguration="{E092E166-6CE7-4B00-88D7-52B4A3FA72EE}|Default">
   <MonoDevelop.Ide.ItemProperties.AmazonNUnit PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
-    <Files>
-      <File FileName="AmazonNUnit/Tests/UnitTest1.cs" Line="19" Column="1" />
-    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="AmazonNUnit" expanded="True">
             <Node name="AmazonNUnit" expanded="True">
-              <Node name="Pages" expanded="True">
-                <Node name="AmazonAddedToCartPage.cs" selected="True" />
-              </Node>
-              <Node name="Tests" expanded="True" />
+              <Node name="Pages" selected="True" />
             </Node>
           </Node>
         </State>

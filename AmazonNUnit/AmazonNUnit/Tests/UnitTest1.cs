@@ -1,19 +1,46 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Safari;
 using System;
 using System.Collections.Generic;
 
+
 namespace AmazonNUnit
 {
-    public class Tests
+    [TestFixture("safari")]
+    [TestFixture("firefox")]
+    [TestFixture("chrome")]
+    public class AmazonTests
     {
-        IWebDriver driver;
+        private IWebDriver driver;
+        private string browser;
+
+        public AmazonTests(string browser)
+        {
+            this.browser = browser;
+        }
+        
 
         [SetUp]
         public void Setup()
         {
-            driver = new SafariDriver();
+            switch (browser)
+            {
+                case ("chrome"):
+                    this.driver = new ChromeDriver();
+                    break;
+                case ("safari"):
+                    this.driver = new SafariDriver();
+                    break;
+                case ("firefox"):
+                    this.driver = new FirefoxDriver();
+                    break;
+                default:
+                    Console.WriteLine("Invalid Browser");
+                    break;
+            }
             driver.Manage().Window.Maximize();
         }
 
