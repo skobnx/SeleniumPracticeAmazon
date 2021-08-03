@@ -9,44 +9,34 @@ using System.Collections.Generic;
 
 namespace AmazonNUnit
 {
-    [TestFixture("safari")]
-    [TestFixture("firefox")]
-    [TestFixture("chrome")]
-    public class AmazonTests
+
+    public class UnitTestsWithTestCases
     {
-        private IWebDriver driver;
-        private string browser;
+        IWebDriver driver;
+        public String browser;
 
-        public AmazonTests(string browser)
-        {
-            this.browser = browser;
-        }
-
-
-        [SetUp]
-        public void Setup()
+        public IWebDriver getWebDriver(string browser)
         {
             switch (browser)
             {
                 case ("chrome"):
-                    this.driver = new ChromeDriver();
-                    break;
+                    return new ChromeDriver();
                 case ("safari"):
-                    this.driver = new SafariDriver();
-                    break;
+                    return new SafariDriver();
                 case ("firefox"):
-                    this.driver = new FirefoxDriver();
-                    break;
+                    return new FirefoxDriver();
                 default:
                     Console.WriteLine("Invalid Browser");
-                    break;
+                    return null;
             }
-            driver.Manage().Window.Maximize();
         }
 
         [Test]
-        public void TestAscending()
+        [TestCase("safari")]
+        [TestCase("chrome")]
+        public void TestAscending(string browser)
         {
+            this.driver = this.getWebDriver(browser);
             driver.Navigate().GoToUrl(@"https://www.amazon.com");
             AmazonHomePage homepage = new AmazonHomePage(driver);
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
@@ -60,8 +50,11 @@ namespace AmazonNUnit
         }
 
         [Test]
-        public void TestDecending()
+        [TestCase("safari")]
+        [TestCase("chrome")]
+        public void TestDecending(string browser)
         {
+            this.driver = this.getWebDriver(browser);
             driver.Navigate().GoToUrl(@"https://www.amazon.com");
             AmazonHomePage homepage = new AmazonHomePage(driver);
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
@@ -75,8 +68,11 @@ namespace AmazonNUnit
         }
 
         [Test]
-        public void TestCartPage()
+        [TestCase("safari")]
+        [TestCase("chrome")]
+        public void TestCartPage(string browser)
         {
+            this.driver = this.getWebDriver(browser);
             driver.Navigate().GoToUrl(@"https://www.amazon.com");
             AmazonHomePage homePage = new AmazonHomePage(driver);
             AmazonShoppingCartPage cartPage = homePage.goToCart();
@@ -86,8 +82,11 @@ namespace AmazonNUnit
         }
 
         [Test]
-        public void TestProductPage()
+        [TestCase("safari")]
+        [TestCase("chrome")]
+        public void TestProductPage(string browser)
         {
+            this.driver = this.getWebDriver(browser);
             driver.Navigate().GoToUrl(@"https://www.amazon.com");
             AmazonHomePage homepage = new AmazonHomePage(driver);
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
@@ -106,8 +105,11 @@ namespace AmazonNUnit
         // 6) goes to the cart page
         // 7) checks that the cart has the correct number of items in it
         [Test]
-        public void TestAddProductToCart()
+        [TestCase("safari")]
+        [TestCase("chrome")]
+        public void TestAddProductToCart(string browser)
         {
+            this.driver = this.getWebDriver(browser);
             driver.Navigate().GoToUrl(@"https://www.amazon.com");
             AmazonHomePage homepage = new AmazonHomePage(driver);
             AmazonSearchPage searchPage = homepage.searchFor("backpacks");
