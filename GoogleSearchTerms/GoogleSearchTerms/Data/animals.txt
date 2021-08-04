@@ -7,5 +7,4 @@ Frog
 Horse
 Fish
 Dragon
-Chicken
 Zebra
