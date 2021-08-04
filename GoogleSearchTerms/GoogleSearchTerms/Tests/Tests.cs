@@ -64,12 +64,15 @@ namespace GoogleSearchTerms.Tests
                 SearchResultsPage searchResultsPage = homepage.searchForSomething(animal);
                 try
                 {
-                    test.CreateNode($"{animal}").Pass("Pass");
+                    var screenshot = ((ITakesScreenshot) _driver).GetScreenshot().AsBase64EncodedString;
+                    test.CreateNode($"{animal}").Pass("Pass")
+                        .Pass(MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot).Build());
                     Assert.AreEqual(_driver.Title, $"{animal} - Google Search");
                 }
                 catch (Exception e)
                 {
-                    test.CreateNode($"{animal}").Fail("Failed");
+                    var screenshot = ((ITakesScreenshot) _driver).GetScreenshot().AsBase64EncodedString;
+                    test.CreateNode($"{animal}").Fail("Failed").Fail(MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenshot).Build());
                 }
             }
         }
