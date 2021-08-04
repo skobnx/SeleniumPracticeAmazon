@@ -1,0 +1,10 @@
+Bird
+Dog
+Cat
+Pig
+Cow
+Frog
+Horse
+Fish
+Dragon
+Zebra

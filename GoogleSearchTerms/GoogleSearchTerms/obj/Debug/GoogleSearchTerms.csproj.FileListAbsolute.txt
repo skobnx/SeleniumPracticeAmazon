@@ -1,0 +1,12 @@
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/GoogleSearchTerms.dll
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/GoogleSearchTerms.pdb
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/nunit.framework.dll
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/SeleniumExtras.WaitHelpers.dll
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/WebDriver.dll
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/nunit.framework.xml
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/obj/Debug/GoogleSearchTerms.csproj.AssemblyReference.cache
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/obj/Debug/GoogleSearchTerms.csproj.CoreCompileInputs.cache
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/obj/Debug/GoogleSearchTerms.csproj.CopyComplete
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/obj/Debug/GoogleSearchTerms.dll
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/obj/Debug/GoogleSearchTerms.pdb
+/Users/sebastiandrake/Documents/QA/SeleniumPracticeAmazon/GoogleSearchTerms/GoogleSearchTerms/bin/Debug/Microsoft.Office.Interop.Excel.dll
