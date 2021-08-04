@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using AventStack.ExtentReports;
+using AventStack.ExtentReports.Reporter;
 using GoogleSearchTerms.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -16,6 +18,9 @@ namespace GoogleSearchTerms.Tests
         private IWebDriver _driver;
         // change the browser type here before running the tests
         private string browser = "safari";
+
+        public static ExtentReports extent;
+        public static ExtentSparkReporter spark;
 
         public List<string> loadData(string filePath)
         {
@@ -36,11 +41,20 @@ namespace GoogleSearchTerms.Tests
             _driver.Manage().Window.Maximize();
 
         }
+
+        [OneTimeSetUp]
+        public void ExtentStart()
+        {
+            extent = new ExtentReports();
+            spark = new ExtentSparkReporter("../report.html");
+            extent.AttachReporter(spark);
+        }
         
 
         [Test]
         public void TestSearchTerms()
         {
+            var test = extent.CreateTest("Test Google Search Terms");
             List<string> searchTerms = loadData(@"../../Data/animals.txt");
 
             foreach (string animal in searchTerms)
@@ -48,7 +62,15 @@ namespace GoogleSearchTerms.Tests
                 _driver.Navigate().GoToUrl("https://google.com/");
                 Homepage homepage = new Homepage(_driver);
                 SearchResultsPage searchResultsPage = homepage.searchForSomething(animal);
-                Assert.AreEqual(_driver.Title, $"{animal} - Google Search");
+                try
+                {
+                    test.CreateNode($"{animal}").Pass("Pass");
+                    Assert.AreEqual(_driver.Title, $"{animal} - Google Search");
+                }
+                catch (Exception e)
+                {
+                    test.CreateNode($"{animal}").Fail("Failed");
+                }
             }
         }
 
@@ -57,13 +79,18 @@ namespace GoogleSearchTerms.Tests
         {
             _driver.Quit();
         }
+
+        [OneTimeTearDown]
+        public void ExtentClose()
+        {
+            extent.Flush();
+        }
     }
 
     // class for constructing a web driver object
     public class DriverFactory
     {
         private IWebDriver driver;
-
         // Constructor
         public DriverFactory(string browserType)
         {
